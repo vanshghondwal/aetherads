@@ -16,6 +16,7 @@ export const PortfolioVideo: React.FC<PortfolioVideoProps> = ({ film, onSelect, 
   const handleMouseEnter = () => {
     setIsHovered(true);
     if (videoRef.current) {
+      videoRef.current.preload = 'auto';
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
     }
@@ -46,7 +47,7 @@ export const PortfolioVideo: React.FC<PortfolioVideoProps> = ({ film, onSelect, 
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.92] group-hover:brightness-100"
         />
         

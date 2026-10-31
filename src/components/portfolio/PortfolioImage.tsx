@@ -19,12 +19,20 @@ export const PortfolioImage: React.FC<PortfolioImageProps> = ({ still, onSelect,
       viewport={{ once: true, margin: '-10%' }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Full-Bleed Artwork Container with Cinematic Framing */}
+      {/* Full-Bleed Artwork Container with Fast Async WebP Loading */}
       <div className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] lg:aspect-square overflow-hidden bg-black">
         <img
           src={still.src}
           alt={still.title}
           loading="lazy"
+          decoding="async"
+          onError={(e) => {
+            // Graceful fallback to png if webp fails
+            const target = e.target as HTMLImageElement;
+            if (target.src.endsWith('.webp')) {
+              target.src = target.src.replace('.webp', '.png');
+            }
+          }}
           className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.92] group-hover:brightness-100"
         />
 
@@ -41,7 +49,7 @@ export const PortfolioImage: React.FC<PortfolioImageProps> = ({ still, onSelect,
           </span>
         </div>
 
-        {/* Bottom Editorial Caption (Always Crisp and Clean) */}
+        {/* Bottom Editorial Caption */}
         <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10 flex items-end justify-between gap-4">
           <div>
             <span className="font-mono text-[10px] tracking-widest text-primary/80 uppercase block mb-1">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Preloader } from './components/common/Preloader';
 import { HeroSection } from './components/sections/HeroSection';
 import { FilmsSection } from './components/sections/FilmsSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
@@ -27,6 +28,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="w-full min-h-screen bg-black text-typo-main selection:bg-primary selection:text-black">
+      {/* Luxury Studio Preloader */}
+      <Preloader />
+
       {/* 01 — Hero */}
       <HeroSection />
 

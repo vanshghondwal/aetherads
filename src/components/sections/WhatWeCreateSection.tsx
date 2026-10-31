@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, ArrowUpRight } from 'lucide-react';
 import { WordsPullUpMultiStyle } from '../common/WordsPullUpMultiStyle';
 import { SectionLabel } from '../common/SectionLabel';
 
 export const WhatWeCreateSection: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Only load and play when visible in viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && videoRef.current) {
+            videoRef.current.preload = 'auto';
+            videoRef.current.play().catch(() => {});
+          } else if (videoRef.current) {
+            videoRef.current.pause();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="services" className="py-24 md:py-36 px-4 sm:px-6 md:px-12 bg-black relative border-t border-white/[0.06] overflow-hidden">
       {/* Subtle Noise Texture */}
@@ -36,13 +61,13 @@ export const WhatWeCreateSection: React.FC = () => {
             viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.7, delay: 0, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Background Video (No unrelated image poster) */}
+            {/* Background Video (Loads lazily only when scrolled into view) */}
             <video
-              autoPlay
+              ref={videoRef}
               muted
               loop
               playsInline
-              preload="auto"
+              preload="none"
               className="absolute inset-0 w-full h-full object-cover filter brightness-[0.6] group-hover:scale-105 transition-transform duration-700"
             >
               <source src="/portfolio/agency/videos/Transform_storyboard_into_video_20261027153937.mp4" type="video/mp4" />
@@ -78,11 +103,13 @@ export const WhatWeCreateSection: React.FC = () => {
                 <span className="text-primary">STILLS</span>
               </div>
 
-              {/* Real Thumbnail */}
+              {/* Fast WebP Thumbnail */}
               <div className="w-16 h-16 rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 p-1">
                 <img
-                  src="/portfolio/agency/photos/Portronics Vader Pro Gaming Mouse Ad.png"
+                  src="/portfolio/agency/photos/Portronics Vader Pro Gaming Mouse Ad.webp"
                   alt="Product thumbnail"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -136,8 +163,10 @@ export const WhatWeCreateSection: React.FC = () => {
 
               <div className="w-16 h-16 rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 p-1">
                 <img
-                  src="/portfolio/agency/photos/Minimalist Vitamin C Serum Glow.png"
+                  src="/portfolio/agency/photos/Minimalist Vitamin C Serum Glow.webp"
                   alt="Motion thumbnail"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -191,8 +220,10 @@ export const WhatWeCreateSection: React.FC = () => {
 
               <div className="w-16 h-16 rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 p-1">
                 <img
-                  src="/portfolio/agency/photos/More Than a Watch_ Premium SYLVI Timepiece.png"
+                  src="/portfolio/agency/photos/More Than a Watch_ Premium SYLVI Timepiece.webp"
                   alt="Direction thumbnail"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain"
                 />
               </div>
