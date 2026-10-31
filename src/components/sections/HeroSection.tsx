@@ -35,10 +35,11 @@ export const HeroSection: React.FC = () => {
         {/* PRISMA HANGING BLACK NAVBAR CAPSULE */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30">
           <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-5 py-2.5 md:px-8 md:py-3 border-x border-b border-white/15 flex items-center gap-6 md:gap-8 shadow-2xl">
-            <div className="hidden sm:flex items-center gap-6 md:gap-7 text-xs font-mono tracking-widest text-typo-nav">
+            <div className="hidden sm:flex items-center gap-5 md:gap-7 text-xs font-mono tracking-widest text-typo-nav">
               <a href="#films" className="hover:text-primary transition-colors">WORK</a>
               <a href="#portfolio" className="hover:text-primary transition-colors">PORTFOLIO</a>
               <a href="#about" className="hover:text-primary transition-colors">STUDIO</a>
+              <a href="#packages" className="hover:text-primary transition-colors">PACKAGES</a>
               <a href="#standards" className="hover:text-primary transition-colors">STANDARDS</a>
               <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
               <a href="#contact" className="hover:text-primary transition-colors">CONTACT</a>
@@ -62,9 +63,10 @@ export const HeroSection: React.FC = () => {
             <a href="#films" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">01 // SELECTED WORK</a>
             <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">02 // STILL FRAMES</a>
             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">03 // ABOUT STUDIO</a>
-            <a href="#standards" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">04 // STANDARDS</a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">05 // FAQ</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-primary py-2">06 // CONTACT</a>
+            <a href="#packages" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">04 // PACKAGES & BUILDER</a>
+            <a href="#standards" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">05 // STANDARDS</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">06 // FAQ</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-primary py-2">07 // CONTACT</a>
           </div>
         )}
 

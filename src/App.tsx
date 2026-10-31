@@ -5,6 +5,7 @@ import { FilmsSection } from './components/sections/FilmsSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { WhatWeCreateSection } from './components/sections/WhatWeCreateSection';
+import { PackagesSection } from './components/sections/PackagesSection';
 import { TrustStandardsSection } from './components/sections/TrustStandardsSection';
 import { FaqSection } from './components/sections/FaqSection';
 import { ContactSection } from './components/sections/ContactSection';
@@ -15,6 +16,15 @@ import { FILMS_DATA, STILLS_DATA, FilmItem } from './data/portfolioData';
 export const App: React.FC = () => {
   const [activeFilm, setActiveFilm] = useState<FilmItem | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+  const [inquiryPreset, setInquiryPreset] = useState<string>('');
+
+  const handleSelectPackage = (text: string) => {
+    setInquiryPreset(text);
+    const contactElem = document.getElementById('contact');
+    if (contactElem) {
+      contactElem.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const handleNextImage = () => {
     if (activeImageIndex !== null) {
@@ -48,14 +58,17 @@ export const App: React.FC = () => {
       {/* 05 — What We Create */}
       <WhatWeCreateSection />
 
-      {/* 06 — Production Standards & Trust */}
+      {/* 06 — Engagement Packages & Builder */}
+      <PackagesSection onSelectPackage={handleSelectPackage} />
+
+      {/* 07 — Production Standards & Trust */}
       <TrustStandardsSection />
 
-      {/* 07 — Frequently Asked Questions */}
+      {/* 08 — Frequently Asked Questions */}
       <FaqSection />
 
-      {/* 08 — Contact & Footer */}
-      <ContactSection />
+      {/* 09 — Contact & Footer */}
+      <ContactSection presetMessage={inquiryPreset} />
 
       {/* Modals / Lightboxes */}
       <VideoLightbox

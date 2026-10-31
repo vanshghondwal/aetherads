@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUp, Mail, Phone, CheckCircle2, Send, Loader2 } from 'lucide-react';
 import { SectionLabel } from '../common/SectionLabel';
 import { WordsPullUpMultiStyle } from '../common/WordsPullUpMultiStyle';
 import { STUDIO_CONFIG } from '../../data/portfolioData';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  presetMessage?: string;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ presetMessage }) => {
   const [formData, setFormData] = useState({
     name: '',
     brand: '',
@@ -14,6 +18,15 @@ export const ContactSection: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (presetMessage) {
+      setFormData((prev) => ({
+        ...prev,
+        message: presetMessage
+      }));
+    }
+  }, [presetMessage]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

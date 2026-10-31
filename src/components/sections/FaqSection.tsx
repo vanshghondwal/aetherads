@@ -31,6 +31,14 @@ const FAQS: FaqItem[] = [
     answer: 'Absolutely. We meticulously follow your official brand guidelines, including exact HEX color palettes, typography specifications, logo placements, and tone of voice, ensuring all still and motion assets look seamlessly native to your brand.'
   },
   {
+    question: 'Can we build a custom package or subscribe to a monthly creative retainer?',
+    answer: 'Yes! We offer a dedicated Monthly Retainer (10 high-converting image ads + 5 cinematic video ads delivered every month to maintain ad account momentum) as well as fully customizable bespoke builds. You can select your exact count of images, videos, format (short-form 9:16 or long-form 16:9), and creative style. Contact our desk for a custom affordable quote tailored to your scope.'
+  },
+  {
+    question: 'What visual styles can you produce (Cinematic, Anime, 3D, 2D), and how is it affordable?',
+    answer: 'We craft visuals across all key styles: Cinematic Photorealism, Japanese Anime & Stylized motion, 3D CGI product renders, and 2D kinetic graphics. By leveraging AI-accelerated generative pipelines, we remove the ₹5,00,000+ overhead of physical camera crews, studio rental, and lengthy 3D rendering farms—passing massive cost savings directly to you at highly accessible studio rates.'
+  },
+  {
     question: 'How do we get started on an upcoming launch?',
     answer: 'Simply fill out the inquiry form below with your brand details and project vision, or call our creative desk directly at 8595216037. We will discuss your campaign goals and begin visual development immediately.'
   }
