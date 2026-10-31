@@ -155,7 +155,7 @@ export const STUDIO_CONFIG = {
   name: 'AETHER ADS',
   tagline: 'Ads that make people stop.',
   subtitle: 'INDEPENDENT CREATIVE STUDIO / AI-POWERED PRODUCTION',
-  email: 'team@aetherstudio.com',
+  email: 'vansh.ghondwal@gmail.com',
   phone: '8595216037',
   phoneDisplay: '+91 8595216037',
   year: '2026'

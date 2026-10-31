@@ -15,18 +15,48 @@ export const ContactSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate reliable form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Send real email directly to vansh.ghondwal@gmail.com via FormSubmit endpoint
+      const response = await fetch(`https://formsubmit.co/ajax/${STUDIO_CONFIG.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New AETHER ADS Campaign Inquiry from ${formData.name || 'Client'} (${formData.brand || 'Brand'})`,
+          _template: 'table',
+          _captcha: 'false',
+          Name: formData.name,
+          Brand: formData.brand,
+          Email: formData.email,
+          Phone: formData.phone,
+          Message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        // Fallback to direct mailto if API limits or blocks
+        window.location.href = `mailto:${STUDIO_CONFIG.email}?subject=New Campaign Inquiry from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nBrand: ${formData.brand}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+        )}`;
+        setIsSubmitted(true);
+      }
+    } catch {
+      // Seamless mailto fallback
+      window.location.href = `mailto:${STUDIO_CONFIG.email}?subject=New Campaign Inquiry from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nBrand: ${formData.brand}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+      )}`;
       setIsSubmitted(true);
-      
-      // Also open mail client in background if needed
-      console.log('Form submission received:', formData);
-    }, 900);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -66,7 +96,7 @@ export const ContactSection: React.FC = () => {
                 Inquiry Submitted Successfully
               </h3>
               <p className="text-gray-400 text-sm max-w-md font-light leading-relaxed">
-                Thank you, {formData.name || 'there'}. Your project details have been received. Our creative team will review your brief and contact you at <span className="text-primary font-mono">{formData.phone || formData.email || STUDIO_CONFIG.phone}</span> shortly.
+                Thank you, {formData.name || 'there'}. Your project details have been sent directly to our creative desk at <span className="text-primary font-mono">{STUDIO_CONFIG.email}</span>. We will contact you at <span className="text-primary font-mono">{formData.phone || formData.email}</span> shortly.
               </p>
               <button
                 onClick={() => {
@@ -161,7 +191,7 @@ export const ContactSection: React.FC = () => {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>SUBMITTING INQUIRY...</span>
+                    <span>SENDING TO STUDIO...</span>
                   </>
                 ) : (
                   <>
@@ -173,7 +203,7 @@ export const ContactSection: React.FC = () => {
             </form>
           )}
 
-          {/* Only Direct Phone & Email (NO WhatsApp / Instagram buttons as requested) */}
+          {/* Direct Phone & Email Cards */}
           <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
               href={`tel:${STUDIO_CONFIG.phone}`}
