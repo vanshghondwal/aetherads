@@ -13,14 +13,14 @@ export const HeroSection: React.FC = () => {
       {/* Prisma Inset Rounded Container */}
       <div className="w-full h-full relative rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col justify-between p-6 sm:p-8 md:p-12 border border-white/[0.08]">
         
-        {/* Background Cinematic Video (Requested Video: 3f467cc01908c12bda49d6d10deb1a32_720w.mp4) */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Background Cinematic Video (Pure video stream, no image ad poster) */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-black">
           <video
             autoPlay
             muted
             loop
             playsInline
-            poster="/portfolio/agency/photos/Minimalist Vitamin C Serum Glow.png"
+            preload="auto"
             className="w-full h-full object-cover object-center filter brightness-[0.52] contrast-[1.08]"
           >
             <source src="/portfolio/agency/videos/3f467cc01908c12bda49d6d10deb1a32_720w.mp4" type="video/mp4" />
@@ -77,7 +77,7 @@ export const HeroSection: React.FC = () => {
         {/* Main Center/Lower Composition */}
         <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end my-auto pb-4">
           
-          {/* Left 8 Cols: Giant Studio Wordmark with Asterisk - Fluid size so 'R' and '*' are 100% visible */}
+          {/* Left 8 Cols: Giant Studio Wordmark with Asterisk */}
           <div className="lg:col-span-8 min-w-0 pr-2">
             <h1 className="text-[16vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] xl:text-[10.5vw] 2xl:text-[11vw] font-medium leading-[0.88] tracking-tight text-typo-main uppercase flex items-start whitespace-nowrap">
               <WordsPullUp text={STUDIO_CONFIG.name} delay={0.1} />

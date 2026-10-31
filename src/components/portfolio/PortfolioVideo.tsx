@@ -43,7 +43,6 @@ export const PortfolioVideo: React.FC<PortfolioVideoProps> = ({ film, onSelect, 
         <video
           ref={videoRef}
           src={film.src}
-          poster={film.poster}
           muted
           loop
           playsInline

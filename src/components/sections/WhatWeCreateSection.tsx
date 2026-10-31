@@ -36,13 +36,13 @@ export const WhatWeCreateSection: React.FC = () => {
             viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.7, delay: 0, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Background Video */}
+            {/* Background Video (No unrelated image poster) */}
             <video
               autoPlay
               muted
               loop
               playsInline
-              poster="/portfolio/agency/photos/A Little Chocolate, Brighter Day.png"
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover filter brightness-[0.6] group-hover:scale-105 transition-transform duration-700"
             >
               <source src="/portfolio/agency/videos/Transform_storyboard_into_video_20261027153937.mp4" type="video/mp4" />

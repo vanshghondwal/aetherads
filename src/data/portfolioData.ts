@@ -4,7 +4,6 @@ export interface FilmItem {
   title: string;
   category: string;
   src: string;
-  poster: string;
   description: string;
   aspectClass?: string;
 }
@@ -27,7 +26,6 @@ export const FILMS_DATA: FilmItem[] = [
     title: 'Ethereal Luminescence',
     category: 'BEAUTY & HIGH FASHION',
     src: '/portfolio/agency/videos/3f467cc01908c12bda49d6d10deb1a32_720w.mp4',
-    poster: '/portfolio/agency/photos/Minimalist Vitamin C Serum Glow.png',
     description: 'Intimate high-fashion portraiture exploring natural radiance, skin luminosity, and chiaroscuro lighting.',
     aspectClass: 'aspect-[16/10] md:aspect-[16/9]'
   },
@@ -37,7 +35,6 @@ export const FILMS_DATA: FilmItem[] = [
     title: 'Velvet Indulgence',
     category: 'GOURMET CONFECTIONERY',
     src: '/portfolio/agency/videos/Transform_storyboard_into_video_20261027153937.mp4',
-    poster: '/portfolio/agency/photos/A Little Chocolate, Brighter Day.png',
     description: 'Macro viscosity and fluid confectionery motion showcasing rich cocoa texture and sensory appetite appeal.',
     aspectClass: 'aspect-[4/3] md:aspect-[16/10]'
   },
@@ -47,7 +44,6 @@ export const FILMS_DATA: FilmItem[] = [
     title: 'Apex Extreme',
     category: 'TECH & ADVENTURE',
     src: '/portfolio/agency/videos/Transform_storyboard_into_video_20261027163849.mp4',
-    poster: '/portfolio/agency/photos/Portronics Vader Pro Gaming Mouse Ad.png',
     description: 'High-velocity environmental camera tracking, cinematic lens flare, and rugged action camera commercial.',
     aspectClass: 'aspect-[4/3] md:aspect-[16/10]'
   },
@@ -57,7 +53,6 @@ export const FILMS_DATA: FilmItem[] = [
     title: 'Noir Haute Couture',
     category: 'LUXURY EDITORIAL',
     src: '/portfolio/agency/videos/659d16ff96ed4f3f1ecb4b6b57deb665_720w.mp4',
-    poster: '/portfolio/agency/photos/More Than a Watch_ Premium SYLVI Timepiece.png',
     description: 'Monochrome mood study with deliberate cinematic pacing, stylized garment movement, and evocative gaze.',
     aspectClass: 'aspect-[16/10] md:aspect-[21/9]'
   }

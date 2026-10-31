@@ -121,14 +121,15 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({ film, onClose }) =
           </button>
         </div>
 
-        {/* Video Player */}
+        {/* Video Player - Pure video stream, no unrelated image poster */}
         <div className="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden">
           <video
             ref={videoRef}
             src={film.src}
-            poster={film.poster}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain bg-black"
             playsInline
+            preload="auto"
+            autoPlay
             onTimeUpdate={handleTimeUpdate}
             onEnded={() => setIsPlaying(false)}
           />
@@ -174,7 +175,7 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({ film, onClose }) =
         <div className="p-4 md:px-6 bg-[#141414] border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-gray-400">
           <p className="font-light max-w-2xl">{film.description}</p>
           <span className="font-mono text-[10px] text-primary/70 uppercase flex-shrink-0">
-            PORTFOLIO CONCEPT STUDY
+            CINEMATIC FILM SPECIMEN
           </span>
         </div>
       </div>
