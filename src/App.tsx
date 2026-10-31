@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Preloader } from './components/common/Preloader';
+import { Navbar } from './components/common/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
 import { FilmsSection } from './components/sections/FilmsSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
@@ -42,6 +43,9 @@ export const App: React.FC = () => {
     <div className="w-full min-h-screen bg-black text-typo-main selection:bg-primary selection:text-black">
       {/* Luxury Studio Preloader */}
       <Preloader />
+
+      {/* Modern Floating Luxury Navbar */}
+      <Navbar />
 
       {/* 01 — Hero */}
       <HeroSection />
