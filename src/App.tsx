@@ -5,6 +5,8 @@ import { FilmsSection } from './components/sections/FilmsSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { WhatWeCreateSection } from './components/sections/WhatWeCreateSection';
+import { TrustStandardsSection } from './components/sections/TrustStandardsSection';
+import { FaqSection } from './components/sections/FaqSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { VideoLightbox } from './components/portfolio/VideoLightbox';
 import { ImageLightbox } from './components/portfolio/ImageLightbox';
@@ -46,7 +48,13 @@ export const App: React.FC = () => {
       {/* 05 — What We Create */}
       <WhatWeCreateSection />
 
-      {/* 06 — Contact & Footer */}
+      {/* 06 — Production Standards & Trust */}
+      <TrustStandardsSection />
+
+      {/* 07 — Frequently Asked Questions */}
+      <FaqSection />
+
+      {/* 08 — Contact & Footer */}
       <ContactSection />
 
       {/* Modals / Lightboxes */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Menu, X } from 'lucide-react';
+import { ArrowDown, Menu, X, ShieldCheck } from 'lucide-react';
 import { WordsPullUp } from '../common/WordsPullUp';
 import { PrimaryButton } from '../common/PrimaryButton';
 import { STUDIO_CONFIG } from '../../data/portfolioData';
@@ -35,11 +35,12 @@ export const HeroSection: React.FC = () => {
         {/* PRISMA HANGING BLACK NAVBAR CAPSULE */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30">
           <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-5 py-2.5 md:px-8 md:py-3 border-x border-b border-white/15 flex items-center gap-6 md:gap-8 shadow-2xl">
-            <div className="hidden sm:flex items-center gap-6 md:gap-8 text-xs font-mono tracking-widest text-typo-nav">
+            <div className="hidden sm:flex items-center gap-6 md:gap-7 text-xs font-mono tracking-widest text-typo-nav">
               <a href="#films" className="hover:text-primary transition-colors">WORK</a>
               <a href="#portfolio" className="hover:text-primary transition-colors">PORTFOLIO</a>
               <a href="#about" className="hover:text-primary transition-colors">STUDIO</a>
-              <a href="#services" className="hover:text-primary transition-colors">SERVICES</a>
+              <a href="#standards" className="hover:text-primary transition-colors">STANDARDS</a>
+              <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
               <a href="#contact" className="hover:text-primary transition-colors">CONTACT</a>
             </div>
 
@@ -61,16 +62,22 @@ export const HeroSection: React.FC = () => {
             <a href="#films" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">01 // SELECTED WORK</a>
             <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">02 // STILL FRAMES</a>
             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">03 // ABOUT STUDIO</a>
-            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">04 // SERVICES</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-primary py-2">05 // CONTACT</a>
+            <a href="#standards" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">04 // STANDARDS</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-typo-main hover:text-primary py-2 border-b border-white/10">05 // FAQ</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-primary py-2">06 // CONTACT</a>
           </div>
         )}
 
-        {/* Top Meta Label */}
-        <div className="relative z-10 pt-10 sm:pt-12">
+        {/* Top Meta Label & Trust Pill */}
+        <div className="relative z-10 pt-10 sm:pt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs tracking-[0.25em] text-primary/70 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             <span>{STUDIO_CONFIG.subtitle}</span>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-2 font-mono text-[10px] tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 text-primary">
+            <ShieldCheck className="w-3.5 h-3.5 text-primary" />
+            <span>100% COMMERCIAL RIGHTS • 72H FIRST DRAFT</span>
           </div>
         </div>
 

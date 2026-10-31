@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#000000"/>
+  <rect width="64" height="64" rx="16" fill="none" stroke="#DEDBC8" stroke-width="1.5" stroke-opacity="0.2"/>
+  <!-- Luxury Monogram A -->
+  <path d="M32 14L18 50H25L28.5 40H39.5L43 50H50L36 14H32ZM30.5 34L34 23.5L37.5 34H30.5Z" fill="#DEDBC8"/>
+  <circle cx="48" cy="18" r="2.5" fill="#FF5722"/>
+</svg>
