@@ -21,7 +21,7 @@ export const WordsPullUp: React.FC<WordsPullUpProps> = ({
   return (
     <span ref={ref} className={`inline-block ${className}`}>
       {words.map((word, index) => (
-        <span key={index} className="inline-block overflow-hidden mr-[0.25em] last:mr-0 align-bottom">
+        <span key={index} className="inline-block overflow-hidden pr-[0.08em] mr-[0.25em] last:mr-0 align-bottom">
           <motion.span
             className={`inline-block ${wordClassName}`}
             initial={{ y: 20, opacity: 0 }}

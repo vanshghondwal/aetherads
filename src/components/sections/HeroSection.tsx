@@ -77,11 +77,11 @@ export const HeroSection: React.FC = () => {
         {/* Main Center/Lower Composition */}
         <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end my-auto pb-4">
           
-          {/* Left 8 Cols: Giant Studio Wordmark with Asterisk */}
-          <div className="lg:col-span-8 overflow-hidden">
-            <h1 className="text-[24vw] sm:text-[22vw] md:text-[20vw] lg:text-[18vw] xl:text-[17vw] 2xl:text-[18vw] font-medium leading-[0.82] tracking-[-0.07em] text-typo-main uppercase flex items-start">
+          {/* Left 8 Cols: Giant Studio Wordmark with Asterisk - Fluid size so 'R' and '*' are 100% visible */}
+          <div className="lg:col-span-8 min-w-0 pr-2">
+            <h1 className="text-[16vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] xl:text-[10.5vw] 2xl:text-[11vw] font-medium leading-[0.88] tracking-tight text-typo-main uppercase flex items-start whitespace-nowrap">
               <WordsPullUp text={STUDIO_CONFIG.name} delay={0.1} />
-              <span className="text-[0.4em] font-light text-primary -ml-[0.05em] align-top inline-block leading-none">*</span>
+              <span className="text-[0.45em] font-light text-primary ml-1 align-top inline-block leading-none">*</span>
             </h1>
           </div>
 
