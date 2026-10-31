@@ -74,14 +74,23 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Center/Lower Composition */}
+        {/* Main Center/Lower Composition: AETHER ADS + Tagline */}
         <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end my-auto pb-4">
           
-          {/* Left 8 Cols: Giant Studio Wordmark with Asterisk */}
+          {/* Left 8 Cols: AETHER ADS with Italic Tagline */}
           <div className="lg:col-span-8 min-w-0 pr-2">
-            <h1 className="text-[16vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] xl:text-[10.5vw] 2xl:text-[11vw] font-medium leading-[0.88] tracking-tight text-typo-main uppercase flex items-start whitespace-nowrap">
-              <WordsPullUp text={STUDIO_CONFIG.name} delay={0.1} />
-              <span className="text-[0.45em] font-light text-primary ml-1 align-top inline-block leading-none">*</span>
+            <h1 className="text-[13vw] sm:text-[11vw] md:text-[9.5vw] lg:text-[7.8vw] xl:text-[8vw] 2xl:text-[8.5vw] font-medium leading-[0.88] tracking-tight text-typo-main uppercase flex flex-col items-start">
+              <span className="flex items-center">
+                <WordsPullUp text={STUDIO_CONFIG.name} delay={0.1} />
+              </span>
+              <motion.span
+                className="font-serif italic text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary/90 font-normal tracking-wide normal-case mt-3 md:mt-4 block"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {STUDIO_CONFIG.tagline}
+              </motion.span>
             </h1>
           </div>
 

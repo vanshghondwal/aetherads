@@ -152,7 +152,8 @@ export const STILLS_DATA: StillItem[] = [
 ];
 
 export const STUDIO_CONFIG = {
-  name: 'AETHER',
+  name: 'AETHER ADS',
+  tagline: 'Ads that make people stop.',
   subtitle: 'INDEPENDENT CREATIVE STUDIO / AI-POWERED PRODUCTION',
   email: 'team@aetherstudio.com',
   phone: '8595216037',
